@@ -33,8 +33,8 @@
                 "text": "Systemadministratör"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -131,9 +131,41 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "6500dcfe-c46d-454c-bdf7-fbbce614ef78",
+                  "title": "Äventyrad admin-konto",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Confidentiality",
+                  "description": "Intrång på ett admin-konto p.g.a bristande säkerhet eller nätfiske. ",
+                  "mitigation": "GPS begränsad inloggning för admin-konton.",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 8,
+                  "score": "6"
+                },
+                {
+                  "id": "891bee87-016a-4d52-ad58-644043c870eb",
+                  "title": "Bristande loggar",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "Bristande konfiguering av säkerhetsfunktioner, försämrad spårbarhet av ändringar. Kan leda till otillåtna ändringar i systemet och säkerhetsminskning. ",
+                  "mitigation": "Centraliserad samling och vidarebefodring av loggar till ett SIEM",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 10,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "confidentiality": 1,
+                "integrity": 1,
+                "availability": 0
+              }
             }
           },
           {
@@ -348,58 +380,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Kunduppgifter",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": true,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Kunduppgifter"
-            ],
-            "id": "3c41596e-327a-4d05-8aa8-21dad809a4f0",
-            "source": {
-              "x": 250,
-              "y": 90
-            },
-            "target": {
-              "cell": "4a5141f1-92a0-474d-adf7-fe0061a3c188",
-              "port": "f851eb09-101f-443a-92ac-b4d74fae880b"
-            },
-            "vertices": [
-              {
-                "x": 250,
-                "y": 120
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": "block"
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Åtkomst",
               "description": "",
               "outOfScope": false,
@@ -436,7 +416,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -457,13 +438,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "63705d0d-955e-419d-89d5-c36ba62f45af",
+                  "title": "ID spoofing",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "Spoofing av användaridentitet, obehöring åtkomst som ser legitim ut",
+                  "mitigation": "MFA och övervakning av inloggningar",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 5,
+                  "score": "4"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "confidentiality": 0,
+                "integrity": 1,
+                "availability": 0
+              }
             },
             "labels": [
               "Åtkomst"
@@ -480,6 +480,77 @@
             "vertices": []
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Kunduppgifter",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "ec52ba2b-d5ea-4be6-9d2c-22a7d3f502df",
+                  "title": "Avlyssning",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Confidentiality",
+                  "description": "MITM attack, okrypterad data avläses ",
+                  "mitigation": "Kryptering av data in transit",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 3,
+                  "score": "3"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "confidentiality": 1,
+                "integrity": 0,
+                "availability": 0
+              }
+            },
+            "labels": [
+              "Kunduppgifter"
+            ],
+            "id": "3c41596e-327a-4d05-8aa8-21dad809a4f0",
+            "source": {
+              "cell": "045137ab-023f-4bb9-81c2-2f2e105bef96"
+            },
+            "target": {
+              "cell": "4a5141f1-92a0-474d-adf7-fe0061a3c188",
+              "port": "f851eb09-101f-443a-92ac-b4d74fae880b"
+            },
+            "vertices": [
+              {
+                "x": 250,
+                "y": 120
+              }
+            ]
+          },
+          {
             "position": {
               "x": 580,
               "y": -20
@@ -493,8 +564,8 @@
                 "text": "Fakturasystem"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -591,12 +662,44 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "72662f4e-0a23-4e82-a86e-c491509e0b1a",
+                  "title": "Manipulering av data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "Manipulering av finansiella uppgifter, felaktiga fakturor",
+                  "mitigation": "Meddelandeautentisering i form av t.ex. HMAC kan användas",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 4,
+                  "score": "4"
+                },
+                {
+                  "id": "46bd7246-6d7f-4785-b8c3-f164ec04a98c",
+                  "title": "Överbelastning av system",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Availability",
+                  "description": "För mycket eller felformaterad data skickas till systemet. Avbrott i verksamheten, felaktig information, minskad tillt i systemet.",
+                  "mitigation": "Standariserad data struktur, begränsning i trafiken till systemet. ",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 11,
+                  "score": "3"
+                }
+              ],
+              "threatFrequency": {
+                "confidentiality": 0,
+                "integrity": 1,
+                "availability": 1
+              }
             }
           },
           {
@@ -733,11 +836,13 @@
                 "text": "Databas"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -834,20 +939,45 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
+              "threats": [
+                {
+                  "id": "6710d597-69aa-4b45-9314-2220987b9665",
+                  "title": "SQL-injektion",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Confidentiality",
+                  "description": "Intrång i databasen",
+                  "mitigation": "Prepared statements, inmatningskontroller",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 1,
+                  "score": "5"
+                },
+                {
+                  "id": "92b252ac-5cce-4b2c-b3bf-5141efabb2ef",
+                  "title": "Ransomware-attack",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Availability",
+                  "description": "Krypterad data, utpressning ",
+                  "mitigation": "immutable backuper, flera backuper",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 2,
+                  "score": "5"
+                }
               ],
-              "name": null
+              "threatFrequency": {
+                "confidentiality": 1,
+                "integrity": 0,
+                "availability": 1
+              }
             }
           },
           {
@@ -1027,8 +1157,8 @@
                 "text": "Kontorsenhet"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1125,9 +1255,28 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "21d7f872-2b6a-4f50-811f-25dc35845e59",
+                  "title": "Äventyrad kontorsenhet",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Integrity",
+                  "description": "Obehörig tillgång till en lokal dator. Förlust av data, obehörig modifiering och avläsning av data",
+                  "mitigation": "EDR konfigurerad för datorer, bättre fysisk skydd",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 9,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "confidentiality": 0,
+                "integrity": 1,
+                "availability": 0
+              }
             }
           },
           {
@@ -1144,8 +1293,8 @@
                 "text": "Molntjänst"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1242,12 +1391,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "2f0eaa0a-bacf-48b8-aeba-75cb587d3349",
+                  "title": "DDOS attack",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Availability",
+                  "description": "Affärskritiska system otillgängliga, avbrott i verksamheten",
+                  "mitigation": "Web Application Firewall, rate-limit för requests. ",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 6,
+                  "score": "5"
+                }
+              ],
+              "threatFrequency": {
+                "confidentiality": 0,
+                "integrity": 0,
+                "availability": 1
+              }
             }
           },
           {
@@ -1264,8 +1432,8 @@
                 "text": "Extern enhet"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1362,9 +1530,28 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "661c8e1e-7b9a-4dd0-b5e9-a60c46e0c238",
+                  "title": "Förlust av enhet",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Confidentiality",
+                  "description": "Bortappad eller stulen arbetsmobil, dator osv. ",
+                  "mitigation": "Full disk encryption och lösenordsskyddat enhet. ",
+                  "modelType": "CIA",
+                  "new": false,
+                  "number": 7,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "confidentiality": 1,
+                "integrity": 0,
+                "availability": 0
+              }
             }
           },
           {
@@ -1418,6 +1605,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 0
+    "threatTop": 11
   }
 }
